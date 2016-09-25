@@ -4,12 +4,11 @@ public class BatStatsApp {
 
 	public static void main(String[] args) {
 		
-		// Declare variables
-	
-	    boolean choice =true;
+		// Declare variables 
 		int number=0;
-		int total = 0;
-		int totalBases = 0;
+		double total = 0.0;
+		double result = 0.0;
+	
 	
 		//Declare and Instantiate array
 		int [] hits; 
@@ -61,15 +60,15 @@ public class BatStatsApp {
 			}
 		}
 			
-		//Calculate number of hits and sum of bases
+		//Number of hits and sum of bases
 		for(int i : atBats) {
 			if(i > 0)
 				hits[i]++;
-				total += hits[i];
+				total += i;
 		}
 		
 		//Sum of at bat results 
-		int result = 0;
+	
 		for (int i = 0; i< hits.length; i++) {
 			result += hits[i];
 		}
@@ -79,10 +78,10 @@ public class BatStatsApp {
 		double battingAvg = (double) total/ number;
 	
 		//Prints out batting average
-		System.out.println("Batting average:" +battingAvg);
+		System.out.printf("Batting Average: %.3f \n", battingAvg);
 		
 		//Prints out slugging percentage
-		System.out.println("Slugging Percentage:" +slug);
+		System.out.printf("Slugging Percentage: %.3f \n", slug);
 	
 		//Prompt user to another another batter if they want to continue
 		System.out.println("Another batter? (y/n):");
@@ -90,6 +89,8 @@ public class BatStatsApp {
 	
 		//Validate to ensure user only enters a "Y", "y", "N", or "n"
 		
+		
+
 		
 		//While loop to allow user to return to the beginning of program
 		}while(true);
