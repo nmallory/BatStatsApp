@@ -13,7 +13,6 @@ public class BatStatsApp {
 	
 		//Declare and Instantiate array
 		int [] hits; 
-	
 		
 		//Create scanner
 		Scanner input = new Scanner(System.in);
@@ -68,10 +67,16 @@ public class BatStatsApp {
 				hits[i]++;
 				total += hits[i];
 		}
-	
+		
+		//Sum of at bat results 
+		int result = 0;
+		for (int i = 0; i< hits.length; i++) {
+			result += hits[i];
+		}
+		
 		//Calculate battingAve and slugPercent
-		double slug = (double) total/ number;
-		double battingAvg = (double) number/ total;
+		double slug = (double) result/ number;
+		double battingAvg = (double) total/ number;
 	
 		//Prints out batting average
 		System.out.println("Batting average:" +battingAvg);
