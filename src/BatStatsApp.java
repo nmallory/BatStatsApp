@@ -5,13 +5,12 @@ public class BatStatsApp {
 	public static void main(String[] args) {
 		
 		// Declare variables
-		int totalNumberBats = 0;
+	
 	    boolean choice =true;
 		int number=0;
 		int total = 0;
 		int totalBases = 0;
-
-		
+	
 		//Declare and Instantiate array
 		int [] hits; 
 	
@@ -32,15 +31,15 @@ public class BatStatsApp {
 		System.out.println("Enter number of times at bat:");
 		number = input.nextInt( );
 		
-		//Create new array for atBats
-		int [] atBats = new int[number];
-		
 		//Validation to ensure user only enters positive integers for number of times at bat
-		if(number< 0){
-			System.out.println("You entered a negative number. Please enter a positive number.");
+		if(number<=0){
+			System.out.println("You entered an invalid number. Enter a number greater than 0.");
 			System.out.println("Enter number of times at bat:");
 			number = input.nextInt( );
 		}
+		
+		//Create new array for atBats
+		int [] atBats = new int[number];
 		
 		//Creates new object
 		hits=new int[number];
@@ -56,11 +55,10 @@ public class BatStatsApp {
 			hits[i] = input.nextInt();
 			
 			//Validation to ensure user enters a number between 0 to 4
-		
-			if(hits[i] > 4 && hits[i]<0){
+			if(hits[i] > 4 || hits[i]<0){
 			
 				System.out.println("You entered an invalid choise. Please enter a number between 0 and 4.");
-				hits[i] = input.nextInt();
+				number = input.nextInt( );
 			}
 		}
 			
@@ -68,13 +66,13 @@ public class BatStatsApp {
 		for(int i : atBats) {
 			if(i > 0)
 				hits[i]++;
-				total += i;
+				total += hits[i];
 		}
 	
 		//Calculate battingAve and slugPercent
 		double slug = (double) total/ number;
 		double battingAvg = (double) number/ total;
-		
+	
 		//Prints out batting average
 		System.out.println("Batting average:" +battingAvg);
 		
@@ -84,7 +82,6 @@ public class BatStatsApp {
 		//Prompt user to another another batter if they want to continue
 		System.out.println("Another batter? (y/n):");
 		input.next( );
-		
 	
 		//Validate to ensure user only enters a "Y", "y", "N", or "n"
 		
