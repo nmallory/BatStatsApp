@@ -23,7 +23,6 @@ public class BatStatsApp {
 	
 		System.out.println("0=out, 1=single, 2=double, 3=triple, 4=home run");
 		System.out.println("===============================================");
-		
 	
 		//Prompt user to enter number of times at bat	
 		System.out.println("Enter number of times at bat:");
@@ -43,19 +42,18 @@ public class BatStatsApp {
 		hits=new int[number];
 	
 
-		//Displays number of at bats
+		//Displays number of at bats entered by user
 		for (int i = 0; i < hits.length; i++) {
 			total = total + 1 ;
 			System.out.print("Result for at-bat "  + i +  ": " );
-			
-			
+	
 			//User input times at bat
 			hits[i] = input.nextInt();
 			
 			//Validation to ensure user enters a number between 0 to 4
 			if(hits[i] > 4 || hits[i]<0){
 			
-				System.out.println("You entered an invalid choise. Please enter a number between 0 and 4.");
+				System.out.println("You entered an invalid choice. Please enter a number between 0 and 4.");
 				number = input.nextInt( );
 			}
 		}
@@ -68,7 +66,6 @@ public class BatStatsApp {
 		}
 		
 		//Sum of at bat results 
-	
 		for (int i = 0; i< hits.length; i++) {
 			result += hits[i];
 		}
@@ -88,9 +85,15 @@ public class BatStatsApp {
 		input.next( );
 	
 		//Validate to ensure user only enters a "Y", "y", "N", or "n"
+		String choice = input.nextLine();
 		
-		
-
+		char charLetter = 0;
+	
+		if (charLetter != 'y' && charLetter != 'n'){
+			System.out.print("Invalid input. Try again. Another batter? (y/n) ");
+			choice = input.next();
+			charLetter = choice.toUpperCase().charAt(0);
+		}
 		
 		//While loop to allow user to return to the beginning of program
 		}while(true);
