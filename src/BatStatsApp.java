@@ -8,6 +8,7 @@ public class BatStatsApp {
 		int number=0;
 		double total = 0.0;
 		double result = 0.0;
+		String answer = "";
 	
 	
 		//Declare and Instantiate array
@@ -20,7 +21,7 @@ public class BatStatsApp {
 		do{
 		System.out.println("Welcome to Batting Average Calculator!");
 		System.out.println();
-	
+		
 		System.out.println("0=out, 1=single, 2=double, 3=triple, 4=home run");
 		System.out.println("===============================================");
 	
@@ -84,19 +85,24 @@ public class BatStatsApp {
 		System.out.println("Another batter? (y/n):");
 		input.next( );
 	
-		//Validate to ensure user only enters a "Y", "y", "N", or "n"
+		//Validation to ensure user only enters a "Y", "y", "N", or "n"
 		String choice = input.nextLine();
-		
 		char charLetter = 0;
 	
-		if (charLetter != 'y' && charLetter != 'n'){
+		if (charLetter != 'y' && charLetter != 'Y' && charLetter != 'n' && charLetter != 'N'){
 			System.out.print("Invalid input. Try again. Another batter? (y/n) ");
 			choice = input.next();
 			charLetter = choice.toUpperCase().charAt(0);
 		}
 		
+		//If user enters 'N', program terminates
+		if(charLetter == 'N'){
+			break;			
+		}
+		
 		//While loop to allow user to return to the beginning of program
 		}while(true);
-	}
-
-}
+		
+	}//psvm
+ 
+}//ends class
