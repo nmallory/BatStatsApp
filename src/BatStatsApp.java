@@ -9,7 +9,7 @@ public class BatStatsApp {
 		double total = 0.0;
 		double result = 0.0;
 		String answer = "";
-	
+		boolean proceed = true;
 	
 		//Declare and Instantiate array
 		int [] hits; 
@@ -18,21 +18,20 @@ public class BatStatsApp {
 		Scanner input = new Scanner(System.in);
 		
 		//Welcome message
-		do{
-		System.out.println("Welcome to Batting Average Calculator!");
-		System.out.println();
+		while(proceed){
+		System.out.println("Welcome to Batting Average Calculator!\n");
+	
 		
 		System.out.println("0=out, 1=single, 2=double, 3=triple, 4=home run");
 		System.out.println("===============================================");
 	
 		//Prompt user to enter number of times at bat	
-		System.out.println("Enter number of times at bat:");
+		System.out.println("Enter number of times at bat:\n");
 		number = input.nextInt( );
 		
 		//Validation to ensure user only enters positive integers for number of times at bat
-		if(number<=0){
-			System.out.println("You entered an invalid number. Enter a number greater than 0.");
-			System.out.println("Enter number of times at bat:");
+		while(number <= 0){
+			System.out.println("You entered an invalid number. Enter a number greater than 0:");
 			number = input.nextInt( );
 		}
 		
@@ -83,25 +82,21 @@ public class BatStatsApp {
 	
 		//Prompt user to another another batter if they want to continue
 		System.out.println("Another batter? (y/n):");
-		input.next( );
+		input.nextLine( );
 	
 		//Validation to ensure user only enters a "Y", "y", "N", or "n"
 		String choice = input.nextLine();
-		char charLetter = 0;
-	
-		if (charLetter != 'y' && charLetter != 'Y' && charLetter != 'n' && charLetter != 'N'){
-			System.out.print("Invalid input. Try again. Another batter? (y/n) ");
-			choice = input.next();
-			charLetter = choice.toUpperCase().charAt(0);
+		
+		
+		if(choice.equalsIgnoreCase("y")){
+			proceed = true;	
+		}else{
+			proceed= false;
+			System.out.println("Thanks for playing");
 		}
 		
-		//If user enters 'N', program terminates
-		if(charLetter == 'N'){
-			break;			
-		}
-		
-		//While loop to allow user to return to the beginning of program
-		}while(true);
+		}//end while
+			
 		
 	}//psvm
  
